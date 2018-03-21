@@ -132,7 +132,12 @@ bot.on("message", async message => {
 		  channel.delete()
   			.then(console.log)
   			.catch(console.error);
-		}
+		});
+		bot.channels.filter(c => c.name === 'spam').forEach(channel => {
+		  channel.delete()
+  			.then(console.log)
+  			.catch(console.error);
+		});
 	}
 });
 
