@@ -9,7 +9,7 @@ const button_talked_users = new Set();
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
-	bot.channels.filter(c => c.name === 'serverbot-status').forEach(channel => channel.send(`AdBot has just restarted.`));
+	bot.channels.filter(c => c.name === 'serverbot-status').forEach(channel => channel.send(`💎Server-Setup💎 has just restarted.`));
 });
 
 bot.on('guildMemberAdd', member => {
