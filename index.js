@@ -86,6 +86,15 @@ bot.on("message", async message => {
       	.then(console.log)
       	.catch(console.error);
 		}
+		message.guild.createChannel('music', 'voice')
+      .then(console.log)
+     	.catch(console.error);
+		message.guild.createChannel('interviews', 'voice')
+      .then(console.log)
+     	.catch(console.error);
+		message.guild.createChannel('support', 'voice')
+      .then(console.log)
+     	.catch(console.error);
 		message.channel.send("`Finished building basic text channels.`")
 		return message.author.send("`I have just build basic text channels in your server!`\n\n```You now need to edit catagories and possibly user permissions until you get it how you like it! Try to personalize your server a bit so it will be unique!```")
 	}
