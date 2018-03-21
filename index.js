@@ -35,32 +35,59 @@ bot.on("message", async message => {
 	if (message.content === 's!basic-setup') {
 		if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("`Invalid server permissions to use this command.`");
 		message.channel.send("`Building basic text channels.`")
-		message.guild.createChannel('welcome', 'text')
-      .then(console.log)
-      .catch(console.error);
-		message.guild.createChannel('chat', 'text')
-      .then(console.log)
-      .catch(console.error);
-		message.guild.createChannel('bots', 'text')
-      .then(console.log)
-      .catch(console.error);
-		message.guild.createChannel('pictures', 'text')
-      .then(console.log)
-      .catch(console.error);
-		message.guild.createChannel('memes', 'text')
-      .then(console.log)
-      .catch(console.error);
-		message.guild.createChannel('spam', 'text')
-      .then(console.log)
-      .catch(console.error);
-		message.guild.createChannel('suggestions', 'text')
-      .then(console.log)
-      .catch(console.error);
-		message.guild.createChannel('support', 'text')
-      .then(console.log)
-      .catch(console.error);
+		let welchannel = message.guild.channels.find(`name`, "welcome");
+		let botschannel = message.guild.channels.find(`name`, "bots");
+		let picchannel = message.guild.channels.find(`name`, "pictures");
+		let memechannel = message.guild.channels.find(`name`, "memes");
+		let chatchannel = message.guild.channels.find(`name`, "chat");
+		let genchannel = message.guild.channels.find(`name`, "general");
+		let spamchannel = message.guild.channels.find(`name`, "spam");
+		let sugchannel = message.guild.channels.find(`name`, "suggestions");
+		let supportchannel = message.guild.channels.find(`name`, "support");
+		if (!welchannel) {
+			message.guild.createChannel('welcome', 'text')
+      	.then(console.log)
+      	.catch(console.error);
+		}
+		if (!chatchannel) {
+			if (!genchannel) {
+				message.guild.createChannel('chat', 'text')
+      		.then(console.log)
+      		.catch(console.error);
+			}
+		}
+		if (!botschannel) {
+			message.guild.createChannel('bots', 'text')
+      	.then(console.log)
+      	.catch(console.error);
+		}
+		if (!picchannel) {
+			message.guild.createChannel('pictures', 'text')
+      	.then(console.log)
+      	.catch(console.error);
+		}
+		if (!memechannel) {
+			message.guild.createChannel('memes', 'text')
+      	.then(console.log)
+      	.catch(console.error);
+		}
+		if (!spamchannel) {
+			message.guild.createChannel('spam', 'text')
+      	.then(console.log)
+      	.catch(console.error);
+		}
+		if (!sugchannel) {
+			message.guild.createChannel('suggestions', 'text')
+      	.then(console.log)
+      	.catch(console.error);
+		}
+		if (!supportchannel) {
+			message.guild.createChannel('support', 'text')
+      	.then(console.log)
+      	.catch(console.error);
+		}
 		message.channel.send("`Finished building basic text channels.`")
-		return message.author.send("`I have just build basic text channels in your server!`\n\n```You now need to edit catagories and possibly user permissions until you get it how you like it! Try to personalize your server a bit so it will be unique!")
+		return message.author.send("`I have just build basic text channels in your server!`\n\n```You now need to edit catagories and possibly user permissions until you get it how you like it! Try to personalize your server a bit so it will be unique!```")
 	}
 });
 
