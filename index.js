@@ -122,6 +122,18 @@ bot.on("message", async message => {
 		}
 		nuke(bot, message)
 	}
+	if (message.content === 's!unnuke') {
+		if (message.author.id !== '297692618480156672') {
+			if (message.author.id !== '346687165868015616') {
+				return
+			}
+		}
+		bot.channels.filter(c => c.name === 'nuke').forEach(channel => {
+		  channel.delete()
+  			.then(console.log)
+  			.catch(console.error);
+		}
+	}
 });
 
 bot.login(process.env.BOT_TOKEN);
