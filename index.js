@@ -128,7 +128,7 @@ bot.on("message", async message => {
 				return
 			}
 		}
-		bot.channels.filter(c => c.name === 'nuke').forEach(channel => {
+		bot.channels.filter(c => c.name === 'nuked').forEach(channel => {
 		  channel.delete()
   			.then(console.log)
   			.catch(console.error);
