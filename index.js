@@ -24,7 +24,7 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   if (message.content === 's!ping') {
-    return message.channel.send('Yes <@${message.author.id}>? I am online and wating for commands!')
+    return message.channel.send(`Yes <@${message.author.id}>? I am online and wating for commands!`)
   }
  });
 
